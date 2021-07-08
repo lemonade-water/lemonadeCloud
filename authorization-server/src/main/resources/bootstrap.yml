@@ -1,0 +1,19 @@
+server:
+  port: 1000
+spring:
+  application:
+    name: authorization-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${REGISTER_HOST:192.168.19.187}:${REGISTER_PORT:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: ${REGISTER_HOST:192.168.19.187}:${REGISTER_PORT:8848}
+        #配置可以读取配置文件   读取的配置文件是 authorization-server.yml
+        file-extension: yml
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+
+
