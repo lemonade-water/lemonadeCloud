@@ -1,4 +1,4 @@
-package com.lemonade.cloud;
+package com.lemonade.cloud.server.sysAdmin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +8,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class AuthorizationApplication {
+public class SysAdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthorizationApplication.class,args);
+        SpringApplication.run(SysAdminApplication.class, args);
     }
 }
