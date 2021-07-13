@@ -22,6 +22,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Resource
     private UserService userService;
 
+    /**
+     * 采用 RBAC 权限模式
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("username:{}",username);
@@ -37,8 +43,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         /*冻结*/
         boolean frozen = status.equals(SysUserEnum.FROZEN.getCode());
         Set<SysRole> roles = user.getRoles();
-        if (roles.isEmpty()){
-
+        if (roles==null || roles.isEmpty()){
+            //如果没有角色 这里可以设置无需登录的用户
+            throw new UsernameNotFoundException("没有系统角色");
         }
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
@@ -47,6 +54,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 !locked,
                 !frozen,
                 !locked,
-                roles.stream().map(role -> new SimpleGrantedAuthority(role.getCode())).collect(Collectors.toSet()));
+                roles.stream().map(role ->
+                        new SimpleGrantedAuthority(role.getCode())).collect(Collectors.toSet()));
     }
 }

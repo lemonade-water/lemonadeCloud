@@ -38,6 +38,8 @@
         <mysql.connector.version>8.0.18</mysql.connector.version>
         <mybatis.plus.version>3.1.0</mybatis.plus.version>
         <mybatis.spring.version>2.0.0</mybatis.spring.version>
+        <validation_version>1.1.0.Final</validation_version>
+        <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
     </properties>
 
 
@@ -120,6 +122,17 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

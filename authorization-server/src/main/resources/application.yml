@@ -16,3 +16,7 @@ spring:
     oauth2:
       jwt:
         signingKey: lemonadeCloud123456
+management:
+  endpoint:
+    health:
+      enabled: true
