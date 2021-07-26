@@ -67,5 +67,4 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         return sysUserRoleService.saveBatch(sysUserRoles);
     }
-
 }

@@ -16,6 +16,14 @@ spring:
     oauth2:
       jwt:
         signingKey: lemonadeCloud123456
+logging:
+  level:
+    com.springboot.cloud: debug
+    org.springframework.web: debug
+    org.springframework.security: debug
+  file:
+    max-size: 1GB
+    path: logs/
 management:
   endpoint:
     health:
