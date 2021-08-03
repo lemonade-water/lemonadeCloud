@@ -30,6 +30,7 @@
         <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.0.RELEASE</spring.cloud.alibaba.version>
 
+
         <swagger.version>2.9.2</swagger.version>
         <!--这里有一个坑：必须是这个版本以上的才支持redis存储token-->
         <security.oauth2.version>2.3.3.RELEASE</security.oauth2.version>
