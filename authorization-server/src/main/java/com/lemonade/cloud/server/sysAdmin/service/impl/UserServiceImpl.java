@@ -3,8 +3,11 @@ package com.lemonade.cloud.server.sysAdmin.service.impl;
 import com.lemonade.cloud.common.entity.model.sysAdmin.SysUser;
 import com.lemonade.cloud.server.sysAdmin.provider.SysUserProvider;
 import com.lemonade.cloud.server.sysAdmin.service.UserService;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @Service
@@ -17,4 +20,5 @@ public class UserServiceImpl implements UserService {
     public SysUser getSysUserByUsername(String username) {
         return sysUserProvider.getSysUserByUsername(username).getData();
     }
+
 }

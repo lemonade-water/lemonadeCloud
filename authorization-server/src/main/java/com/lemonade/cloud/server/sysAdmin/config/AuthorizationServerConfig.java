@@ -40,6 +40,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private RedisTokenStore redisTokenStore;
 
     /**
+     * 配置 支持password模式
+     */
+    @Resource
+    private AuthenticationManager authenticationManager;
+
+    /**
      * jwt 对称加密密钥
      */
     @Value("${spring.security.oauth2.jwt.signingKey}")
@@ -51,6 +57,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.userDetailsService(userDetailsService)
+                .authenticationManager(authenticationManager) //配置支持password模式
                 .tokenStore(redisTokenStore); //token数据存储在redis中
     }
 
